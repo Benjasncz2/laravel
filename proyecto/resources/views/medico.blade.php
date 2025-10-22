@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Hello world</h1>
-    <p>Welcome to the medico page.</p>
-    <a href="/enfermera" class="btn">Ir a enfermera</a>
+    <p>Medico</p>
+    <a href="/dashboard" class="btn">ir a dashboard</a>
 </body>
 </html>

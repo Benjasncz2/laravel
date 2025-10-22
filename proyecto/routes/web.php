@@ -10,6 +10,6 @@ Route::get('/medico', function () {
     return view('medico');
 });
 
-Route::get('/enfermera', function () {
-    return view('enfermera');
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
