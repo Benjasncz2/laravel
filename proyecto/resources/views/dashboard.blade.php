@@ -12,7 +12,7 @@
   <header>
     <div class="title"> SISTEMA DE GESTIÓN DE FICHAS MÉDICAS</div>
     <nav>
-      <a href="#">Inicio</a>
+      <a href="/">Inicio</a>
       <a href="#">Dashboard</a>
       <a href="#">Reportes</a>
       <a href="#">Fichas Médicas</a>

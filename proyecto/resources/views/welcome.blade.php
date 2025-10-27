@@ -6,45 +6,86 @@
   <title>Sistema de Salud - Dashboard</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 </head>
 <body>
   <header>
     <div class="title"> SISTEMA DE GESTIÓN DE FICHAS MÉDICAS</div>
     <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Dashboard</a>
+      <a href=''>Inicio</a>
+      <a href="/dashboard">Dashboard</a>
       <a href="#">Reportes</a>
       <a href="#">Fichas Médicas</a>
       <a href="#">Dr. Carlos Mendoza</a>
     </nav>
   </header>
-
   <main>
-    <div class="card_titulo">
-        <h3>Bienvenido/a Dr. Carlos Mendoza</h3>
-        <p class="subtitulo">Hoy es lunes, 27 de octubre</p>
+  <div class="card_titulo">
+    <h3>Bienvenido/a Dr. Carlos Mendoza</h3>
+    <p class="subtitulo">Hoy es lunes, 27 de octubre</p>
+  </div>
+
+  <div class="cards">
+    <div class="card-opcion">
+      <div class="card-contenido">
+        <div class="icono">
+          <i class="bi bi-bar-chart"></i>
+        </div>
+        <div class="texto">
+          <h4>Dashboard</h4>
+          <p>Métricas y estadísticas generales</p>
+        </div>
+      </div>
+      <button class="btn-flecha">
+        <i class="bi bi-arrow-right"></i>
+      </button>
     </div>
-    <div class="cards">
-        <div class="card">
-            <h4>Dashboard</h4>
-            <p class="subtitulo">Metricas y estadisticas generales</p>
-            <button> class = "boton ver mas"Ver más</button>
+    <div class="card-opcion">
+      <div class="card-contenido">
+        <div class="icono">
+          <i class="bi bi-file-earmark-bar-graph"></i>
         </div>
-        <div class="card">
-            <h4>Resportes</h4>
-            <p class="subtitulo">Informes detallados y exportación</p>
+        <div class="texto">
+          <h4>Reportes</h4>
+          <p>Informes detallados y exportación</p>
         </div>
-        <div class="card">
-            <h4>Fichas Médicas</h4>
-            <p class="subtitulo">Gestión de pacientes</p>
-        </div>
-        <div class="card">
-            <h4>Nueva Ficha Médica</h4>
-            <p class="subtitulo">Registrar nuevos pacientes</p>
-            
-        </div>
+      </div>
+      <button class="btn-flecha">
+        <i class="bi bi-arrow-right"></i>
+      </button>
     </div>
-  </main>
+
+    <div class="card-opcion">
+      <div class="card-contenido">
+        <div class="icono">
+          <i class="bi bi-people"></i>
+        </div>
+        <div class="texto">
+          <h4>Fichas Médicas</h4>
+          <p>Gestión de pacientes</p>
+        </div>
+      </div>
+      <button class="btn-flecha">
+        <i class="bi bi-arrow-right"></i>
+      </button>
+    </div>
+    <div class="card-opcion">
+      <div class="card-contenido">
+        <div class="icono" style="background-color: #e9f7ef; color: #198754;">
+          <i class="bi bi-plus-lg"></i>
+        </div>
+        <div class="texto">
+          <h4>Nueva Ficha Médica</h4>
+          <p>Registrar nuevo paciente</p>
+        </div>
+      </div>
+      <button class="btn-flecha">
+        <i class="bi bi-arrow-right"></i>
+      </button>
+    </div>
+  </div>
+</main>
+
 </body>
 </html>
