@@ -37,9 +37,9 @@
           <p>Métricas y estadísticas generales</p>
         </div>
       </div>
-      <button class="btn-flecha">
+      <a href="/dashboard" class="btn-flecha">
         <i class="bi bi-arrow-right"></i>
-      </button>
+      </a>
     </div>
     <div class="card-opcion">
       <div class="card-contenido">
@@ -85,6 +85,46 @@
       </button>
     </div>
   </div>
+
+  <div class="actividad-reciente">
+  <h3>Actividad reciente</h3>
+  <div class="card-actividad">
+    <div class="card-contenido">
+      <div class="icono">
+        <i class="bi bi-people"></i>
+      </div>
+      <div class="texto">
+        <h4>Pedro Sánchez</h4>
+        <p>Consulta Finalizada - Cardiología</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-actividad">
+    <div class="card-contenido">
+      <div class="icono">
+        <i class="bi bi-people"></i>
+      </div>
+      <div class="texto">
+        <h4>Ignacia Fernandez</h4>
+        <p>Consulta Finalizada - Pediatría</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-actividad">
+    <div class="card-contenido">
+      <div class="icono">
+        <i class="bi bi-people"></i>
+      </div>
+      <div class="texto">
+        <h4>Jaime Gonzalez</h4>
+        <p>Consulta Finalizada - Medicina General</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 </main>
 
 </body>

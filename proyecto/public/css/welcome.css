@@ -100,7 +100,6 @@
     font-size: 0.9rem;
     }
 
-    /* botón de flecha */
     .btn-flecha {
     border: none;
     background: transparent;
@@ -119,6 +118,22 @@
     color: #1c687f;
     }
 
+
+    .actividad-reciente {
+      background: white;
+      padding: 1rem 1.5rem;
+      border-radius: 18px;
+      box-shadow: 0 5px 3px rgba(0,0,0,0.1);
+      margin-top: 2rem;
+    }
+
+
+    .card-actividad {
+      background: #f9fafc;
+      padding: 1rem 1.5rem;
+      border-radius: 10px;  
+      box-shadow: 0 5px 3px rgba(0,0,0,0.1);
+    }
 
 
     canvas { width: 100% !important; height: 300px !important; }
