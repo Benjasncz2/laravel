@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
@@ -53,55 +53,127 @@
       </div>
     </div>
 
-
-    <ul>
-        @foreach ($alergias as $alergia)
-            <li>
-                <strong>{{ $alergia['enfermedad'] }}</strong><br>
-                {{ $alergia['total_diagnosticos'] }}
-                 {{ $alergia['estado_comun'] }}
-            </li>
-        @endforeach
-    </ul>
   </main>
 
   <script>
-    const ctx1 = document.getElementById('consultasChart').getContext('2d');
-    new Chart(ctx1, {
-      type: 'bar',
-      data: {
-        labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
-        datasets: [{
-          label: 'Consultas',
-          data: [50, 80, 70, 100, 120, 110],
-          backgroundColor: '#1c687f',
-          borderRadius: 6,
-        }]
-      },
-      options: {
-        plugins: { legend: { display: false } },
-        scales: { y: { beginAtZero: true } }
-      }
-    });
+const mesesEspañol = {
+    'January': 'Enero',
+    'February': 'Febrero', 
+    'March': 'Marzo',
+    'April': 'Abril',
+    'May': 'Mayo',
+    'June': 'Junio',
+    'July': 'Julio',
+    'August': 'Agosto',
+    'September': 'Septiembre',
+    'October': 'Octubre',
+    'November': 'Noviembre',
+    'December': 'Diciembre'
+};
 
-    const ctx2 = document.getElementById('diagnosticosChart').getContext('2d');
-    new Chart(ctx2, {
-      type: 'bar',
-      data: {
-        labels: ['Hipertensión', 'Diabetes', 'Gripe', 'Gastritis', 'Otros'],
+const ctx1 = document.getElementById('consultasChart').getContext('2d');
+new Chart(ctx1, {
+    type: 'bar',
+    data: {
+        labels: [
+            @foreach ($consultasPorMes as $consulta)
+                "{{ $mesesEspañol[$consulta['nombre_mes']] ?? $consulta['nombre_mes'] ?? 'N/A' }}",
+            @endforeach
+        ],
         datasets: [{
-          label: '%',
-          data: [34, 26, 20, 14, 6],
-          backgroundColor: '#1c687f',
-          borderRadius: 6,
+            label: 'Consultas',
+            data: [
+                @foreach ($consultasPorMes as $consulta)
+                    {{ $consulta['total_consultas'] ?? 0 }},
+                @endforeach
+            ],
+            backgroundColor: '#1c687f',
+            borderRadius: 6,
         }]
-      },
-      options: {
+    },
+    options: {
+        plugins: { 
+            legend: { 
+                display: false 
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return `Consultas: ${context.parsed.y}`;
+                    }
+                }
+            }
+        },
+        scales: { 
+            y: { 
+                beginAtZero: true,
+                title: {
+                    display: true,
+                    text: 'Número de Consultas'
+                }
+            },
+            x: {
+                title: {
+                    display: true,
+                    text: 'Meses'
+                }
+            }
+        }
+    }
+});
+
+const ctx2 = document.getElementById('diagnosticosChart').getContext('2d');
+new Chart(ctx2, {
+    type: 'bar',
+    data: {
+        labels: [
+            @foreach ($diagnosticosFrecuentes as $diagnostico)
+                "{{ addslashes($diagnostico['diagnostico'] ?? 'Sin diagnóstico') }}",
+            @endforeach
+        ],
+        datasets: [{
+            label: 'Total Consultas',
+            data: [
+                @foreach ($diagnosticosFrecuentes as $diagnostico)
+                    {{ $diagnostico['total_consultas'] ?? 0 }},
+                @endforeach
+            ],
+            backgroundColor: '#1c687f',
+            borderRadius: 6,
+        }]
+    },
+    options: {
         indexAxis: 'y',
-        plugins: { legend: { display: false } },
-        scales: { x: { beginAtZero: true, max: 40 } }
-      }
-    });
-  </script>
+        plugins: { 
+            legend: { 
+                display: false 
+            },
+            tooltip: {
+                callbacks: {
+                    label: function(context) {
+                        return `Consultas: ${context.parsed.x}`;
+                    }
+                }
+            }
+        },
+        scales: { 
+            x: { 
+                beginAtZero: true,
+                max: {{ !empty($diagnosticosFrecuentes) ? max(array_column($diagnosticosFrecuentes, 'total_consultas')) + 2 : 10 }},
+                title: {
+                    display: true,
+                    text: 'Cantidad de Consultas'
+                }
+            },
+            y: {
+                title: {
+                    display: true,
+                    text: 'Diagnósticos'
+                }
+            }
+        }
+    }
+});
+</script>
 </body>
 </html>
