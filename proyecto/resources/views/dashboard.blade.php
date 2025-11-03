@@ -52,6 +52,17 @@
         <canvas id="diagnosticosChart"></canvas>
       </div>
     </div>
+
+
+    <ul>
+        @foreach ($alergias as $alergia)
+            <li>
+                <strong>{{ $alergia['enfermedad'] }}</strong><br>
+                {{ $alergia['total_diagnosticos'] }}
+                 {{ $alergia['estado_comun'] }}
+            </li>
+        @endforeach
+    </ul>
   </main>
 
   <script>
